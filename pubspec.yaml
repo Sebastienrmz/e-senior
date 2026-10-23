@@ -1,0 +1,42 @@
+name: e_senior
+description: >
+  Application mobile simplifiée pour seniors. Transforme tout smartphone
+  Android ou iOS en outil accessible. Projet TI350 – 2025/2026.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Base de données locale (CT1)
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  path_provider: ^2.1.1
+
+  # Gestion des images (EF1, EF4)
+  image_picker: ^1.0.4
+
+  # Appels et SMS (EF2, EF3)
+  url_launcher: ^6.1.14
+
+  # Préférences utilisateur
+  shared_preferences: ^2.2.2
+
+  # Identifiants uniques
+  uuid: ^4.1.0
+
+  # Formatage dates
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  sqflite_common_ffi: ^2.3.6
+
+flutter:
+  uses-material-design: true

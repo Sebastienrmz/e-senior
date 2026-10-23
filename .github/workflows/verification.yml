@@ -1,0 +1,64 @@
+name: Vérification et APK Android
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.8'
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+      - run: flutter build apk --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: E-Senior-Android
+          path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Autoriser l’émulateur sur le runner
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Vérifier le démarrage sur Android
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          script: bash .github/scripts/android-smoke.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Controle-demarrage-Android
+          path: |
+            android-startup.png
+            android-startup.log
+            android-activity.txt
+      - name: Préparer la démonstration
+        if: github.event_name == 'push'
+        run: cp build/app/outputs/flutter-apk/app-release.apk E-Senior-Android.apk
+      - name: Publier l’APK vérifié
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "android-${{ github.run_number }}" E-Senior-Android.apk
+          --target "$GITHUB_SHA" --title "E-Senior — démonstration Android"
+          --notes "APK de démonstration. Projet étudiant réalisé à trois. Contacts et données stockés localement. Voir le README pour le parcours de test et les limites." --latest
+    permissions:
+      contents: write
