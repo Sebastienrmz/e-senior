@@ -2,13 +2,13 @@
 
 Application mobile Flutter conçue pour simplifier l’accès aux contacts et aux fonctions courantes du téléphone : appeler un proche, préparer un message et retrouver ses photos.
 
-Projet étudiant TI350, réalisé en équipe de **trois personnes** en 2025–2026 à l’EFREI. **Ma contribution : la gestion des contacts et la base de données locale.** Ce dépôt rassemble l’application du groupe, avec un nettoyage des fichiers et des corrections pour la rendre plus simple à reprendre.
+Projet étudiant TI350, réalisé en équipe de **trois personnes** en 2025–2026 à l’EFREI. **Ma contribution : la gestion des contacts et la base de données locale.**
 
 ## Essayer l’application
 
-Sur **Android**, télécharger `E-Senior-Android.apk` dans [la dernière version disponible](../../releases/latest), puis l’ouvrir sur le téléphone. Il s’agit d’une version de démonstration, distribuée en dehors du Play Store. Aucun compte n’est nécessaire. Utiliser des contacts de démonstration pour commencer.
+Sur **Android**, télécharger `E-Senior-Android.apk` dans [la dernière version disponible](https://github.com/Sebastienrmz/e-senior/releases/latest), puis l’ouvrir sur le téléphone. Il s’agit d’une version de démonstration, distribuée en dehors du Play Store. Aucun compte n’est nécessaire. Utiliser des contacts de démonstration pour commencer.
 
-Pour une présentation de quelques minutes :
+Pour un premier essai :
 
 1. Ajouter un contact avec son nom et son numéro.
 2. Revenir à l’accueil et ouvrir sa fiche.
@@ -19,7 +19,7 @@ Pour une présentation de quelques minutes :
 
 Le bouton SOS demande un maintien de deux secondes, puis une confirmation avant d’ouvrir un appel vers **le contact choisi**. Il ne contacte pas automatiquement les services de secours.
 
-## Ce qui fonctionne
+## Fonctions
 
 - Ajout, modification et suppression de contacts, avec photo facultative.
 - Jusqu’à douze contacts favoris et un seul contact SOS.
@@ -34,9 +34,9 @@ Le bouton SOS demande un maintien de deux secondes, puis une confirmation avant 
 
 L’historique ne lit pas les SMS du téléphone et ne confirme pas qu’un message a été envoyé ou reçu. Les appels, SMS, photos et applications externes dépendent des possibilités du téléphone et de ses autorisations.
 
-La configuration à distance était une piste du projet ; elle n’est pas implémentée. L’application ne contient ni serveur, ni compte utilisateur, ni chiffrement supplémentaire de la base SQLite. Les anciens boutons de contraste et de notifications sonores n’étaient reliés à aucune fonction : ils ont été retirés de cette version.
+La configuration à distance était une piste du projet ; elle n’est pas implémentée. L’application ne contient ni serveur, ni compte utilisateur, ni chiffrement supplémentaire de la base SQLite.
 
-Android est la cible de démonstration. Les fichiers iOS sont conservés, mais la compilation et les essais sur iPhone nécessitent macOS, Xcode et un appareil compatible. L’application n’est pas prévue pour le navigateur ou Windows ; les dossiers de démarrage correspondants ont été retirés.
+Android est la cible de démonstration. Les fichiers iOS sont conservés, mais la compilation et les essais sur iPhone nécessitent macOS, Xcode et un appareil compatible. L’application n’est pas prévue pour le navigateur ou Windows.
 
 ## Lancer depuis le code
 
@@ -82,8 +82,4 @@ ios/            Configuration iOS à valider sur macOS
 test/           Tests de la base, des modèles et des écrans
 ```
 
-## Points que je peux présenter
-
-Sur ma partie, je peux expliquer comment un contact est représenté en Dart, comment il est enregistré en SQLite, comment les requêtes permettent de le retrouver et pourquoi une transaction est utile quand on change le contact SOS. La relation entre contacts et messages permet également d’expliquer une clé étrangère et la suppression en cascade.
-
-Les corrections apportées lors de la remise en ordre sont détaillées dans [CORRECTIONS.md](CORRECTIONS.md).
+Le détail des corrections est disponible dans [CORRECTIONS.md](CORRECTIONS.md).

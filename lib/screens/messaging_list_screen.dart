@@ -7,7 +7,7 @@ import '../services/database_service.dart';
 import '../theme/app_theme.dart';
 import 'conversation_screen.dart';
 
-/// Liste des conversations – EF3 : Messagerie Simplifiée
+/// Contacts favoris et aperçu du dernier texte enregistré.
 ///
 /// Affiche tous les contacts favoris avec aperçu du dernier message
 /// et badge de messages non lus.

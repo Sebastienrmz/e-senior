@@ -1,6 +1,6 @@
-/// Modèle Message – EF3 : Messagerie Simplifiée
+/// Texte préparé pour un contact et conservé localement.
 ///
-/// Représente un message SMS ou WhatsApp dans l'interface simplifiée.
+/// Cette entrée ne confirme pas l’envoi par SMS ou WhatsApp.
 class Message {
   final String id;
   final String contactId;

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  // Couleurs Samsung Easy Mode : neutre, sobre
+  // Palette commune aux écrans.
   static const Color primary = Color(0xFF37474F); // bleu-gris foncé
   static const Color primaryDark = Color(0xFF263238);
   static const Color primaryLight = Color(0xFFECEFF1);

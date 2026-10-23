@@ -8,12 +8,12 @@ import '../models/message.dart';
 import '../services/database_service.dart';
 import '../theme/app_theme.dart';
 
-/// Conversation avec un contact – EF3 : Messagerie Simplifiée
+/// Préparation des messages et consultation de leur historique local.
 ///
-/// • Grandes bulles, texte ≥ 18 pt
-/// • Messages rapides prédéfinis
-/// • Préparation de messages dans l'application SMS et historique local
-/// • Critère d'acceptation : envoi en < 45 secondes
+
+
+
+
 class ConversationScreen extends StatefulWidget {
   final Contact contact;
 
@@ -426,7 +426,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                // Texte ≥ 18 pt (ENF3)
+                // Contenu du brouillon
                 Text(
                   m.content,
                   style: TextStyle(

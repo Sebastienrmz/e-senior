@@ -181,7 +181,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  // CT3 – RGPD : Droit à l'oubli
+  // Effacement des données locales
   void _eraseAll() {
     showDialog(
       context: context,
@@ -281,7 +281,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 24),
 
-          // ═══ CONTACTS (EF1 + EF6) ═══
+          // Contacts
           _section('Mes contacts ($favCount / 12)'),
           ..._contacts.map(_contactCard),
           if (favCount < 12)
@@ -296,7 +296,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 24),
 
-          // ═══ CONTACT D'URGENCE (EF5) ═══
+          // Contact SOS
           _section('Contact d\'urgence (SOS)'),
           Container(
             padding: const EdgeInsets.all(16),
@@ -345,7 +345,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 24),
 
-          // ═══ AFFICHAGE (ENF3) ═══
+          // Affichage
           _section('Affichage'),
           _settingCard(
             Icons.text_fields,
@@ -405,7 +405,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 24),
 
-          // ═══ CONFIGURATION À DISTANCE (EF6) ═══
+          // Présentation de la fonction envisagée
           _section('Configuration à distance'),
           _settingCard(
             Icons.cloud_sync,
@@ -416,7 +416,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 24),
 
-          // ═══ DONNÉES & RGPD (CT3 + ENF2) ═══
+          // Données et confidentialité
           _section('Données et confidentialité'),
           _settingCard(
             Icons.security,
@@ -436,7 +436,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 16),
 
-          // Suppression RGPD
+          // Effacement local
           ElevatedButton.icon(
             onPressed: _eraseAll,
             icon: const Icon(Icons.delete_forever, size: 28),

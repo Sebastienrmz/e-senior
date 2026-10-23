@@ -15,7 +15,7 @@ import 'messaging_list_screen.dart';
 import 'photo_gallery_screen.dart';
 import 'settings_screen.dart';
 
-/// Accueil Samsung Easy Mode / DORO
+/// Accueil : contacts favoris et accès aux fonctions du téléphone.
 /// Grille contacts + grosses tuiles d'action + SOS
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -215,11 +215,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    // ─── Beau header avec salutation ───
+                    // En-tête et salutation
                     _header(),
                     // ─── Grille contacts ───
                     _contacts.isEmpty ? _emptyState() : _contactsGrid(),
-                    // ─── 4 grosses tuiles Samsung Easy Mode ───
+                    // Actions principales
                     _actionTilesGrid(),
                     // ─── SOS ───
                     Padding(
@@ -481,7 +481,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     ),
   );
 
-  /// Grille contacts 3 colonnes – gros avatars ronds Samsung Easy Mode
+  /// Contacts favoris sur trois colonnes.
   Widget _contactsGrid() => GridView.builder(
     shrinkWrap: true,
     physics: const NeverScrollableScrollPhysics(),
@@ -560,7 +560,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     );
   }
 
-  /// 4 GROSSES TUILES – le coeur du style Samsung Easy Mode
+  /// Accès à l’ajout de contact, aux messages, à la caméra et aux photos.
   Widget _actionTilesGrid() => Padding(
     padding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
     child: Column(

@@ -1,7 +1,7 @@
-/// Modèle Contact – EF1 : Gestion des Contacts
+/// Contact enregistré dans la base locale.
 ///
-/// Supporte 6 à 12 contacts favoris avec photo.
-/// Chaque contact peut être marqué comme contact d'urgence SOS (EF5).
+/// Un contact peut avoir une photo et être affiché parmi les favoris.
+/// Un seul contact peut être désigné pour le bouton SOS.
 class Contact {
   final String id;
   String name;

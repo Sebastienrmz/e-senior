@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import '../theme/app_theme.dart';
 
-/// Galerie Photos – EF4
+/// Photos importées dans le dossier de l’application.
 ///
 /// • Consultation des 50 dernières photos avec zoom tactile (pinch)
 /// • Navigation par swipe entre les photos
@@ -50,7 +50,7 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
     } catch (_) {}
 
     if (!mounted) return;
-    // EF4 : afficher les 50 dernières photos
+    // Afficher les cinquante dernières photos importées
     setState(() {
       _photos = files.take(50).toList();
       _loading = false;
@@ -256,7 +256,7 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
 }
 
 // ═════════════════════════════════════════════════════════════════════
-//  VISIONNEUSE – zoom pinch-to-zoom (EF4)
+// Visionneuse avec zoom tactile
 // ═════════════════════════════════════════════════════════════════════
 
 class _PhotoViewer extends StatefulWidget {
@@ -309,7 +309,7 @@ class _PhotoViewerState extends State<_PhotoViewer> {
         itemBuilder: (_, i) => Center(
           child: Hero(
             tag: 'photo_$i',
-            // EF4 : zoom tactile (pinch) avec InteractiveViewer
+            // Zoom tactile avec InteractiveViewer
             child: InteractiveViewer(
               minScale: 0.5,
               maxScale: 5.0,

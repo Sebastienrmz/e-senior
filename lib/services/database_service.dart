@@ -87,7 +87,7 @@ class DatabaseService {
   //  CONTACTS
   // ═══════════════════════════════════════════════════════════════════
 
-  /// Tous les contacts favoris triés (EF1 – écran d'accueil).
+  /// Contacts favoris triés pour l’accueil.
   Future<List<Contact>> getFavorites() async {
     final db = await database;
     final rows = await db.query(
@@ -108,7 +108,7 @@ class DatabaseService {
     return rows.map(Contact.fromMap).toList();
   }
 
-  /// Contact d'urgence (EF5).
+  /// Contact choisi pour le bouton SOS.
   Future<Contact?> getEmergencyContact() async {
     final db = await database;
     final rows = await db.query('contacts', where: 'isEmergency = 1', limit: 1);
@@ -122,7 +122,7 @@ class DatabaseService {
     return rows.isEmpty ? null : Contact.fromMap(rows.first);
   }
 
-  /// Nombre de favoris (max 12 – EF1).
+  /// Nombre de contacts favoris, limité à douze.
   Future<int> favoriteCount() async {
     final db = await database;
     final r = await db.rawQuery(
